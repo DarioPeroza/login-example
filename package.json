@@ -1,5 +1,5 @@
 {
-  "name": "login-example",
+  "name": "login_example",
   "version": "1.0.0",
   "description": "Web login example made with nodejs, mongodb and express",
   "main": "src/server.js",
