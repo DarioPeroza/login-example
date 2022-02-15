@@ -2,9 +2,9 @@
   "name": "login-example",
   "version": "1.0.0",
   "description": "Web login example made with nodejs, mongodb and express",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon src/server.js"
   },
   "keywords": [],
   "author": "DarioPeroza",
@@ -15,10 +15,12 @@
     "dotenv": "^16.0.0",
     "ejs-mate": "^3.0.0",
     "express": "^4.17.2",
+    "express-session": "^1.17.2",
     "mongoose": "^6.2.1",
     "morgan": "^1.10.0",
     "passport": "^0.5.2",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
