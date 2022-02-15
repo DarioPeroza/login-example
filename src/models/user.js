@@ -10,6 +10,8 @@ const schema = new mongoose.Schema({
 
 schema.methods.encryptPassword = (password) => bcrypt.hashSync(password, bcrypt.genSaltSync(10))
 
-schema.methods.comparePassword = (password) => bcrypt.compareSync(password, this.password)
+schema.methods.comparePassword = function(password) {
+    return bcrypt.compareSync(password, this.password)
+}
 
 module.exports = mongoose.model('users', schema);

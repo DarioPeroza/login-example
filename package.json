@@ -4,7 +4,8 @@
   "description": "Web login example made with nodejs, mongodb and express",
   "main": "src/server.js",
   "scripts": {
-    "start": "nodemon src/server.js"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
   },
   "keywords": [],
   "author": "DarioPeroza",

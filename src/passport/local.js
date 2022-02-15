@@ -17,7 +17,8 @@ passport.use('local-signup', new LocalStrategy({
     passReqToCallback: true
 }, async (req, username, password, done) => {
     
-    const existUser = await User.findOne({username: username})
+    const usernameRegex = new RegExp(username, 'i') 
+    const existUser = await User.findOne({username: usernameRegex})
     const {vePassword} = req.body
 
     if (existUser) {
@@ -40,10 +41,11 @@ passport.use('local-signup', new LocalStrategy({
 passport.use('local-signin', new LocalStrategy({
     passReqToCallback: true
 }, async (req, username, password, done) => {
-    User.findOne({ username: username }, function (err, user) {
-      if (err) { return done(err); }
-      if (!user) { return done(null, false, req.flash('loginMessage', 'Invalid username or password')); }
-      if (!user.comparePassword(password)) { return done(null, false, req.flash('loginMessage', 'Invalid username or password')); }
-      return done(null, user);
-    })
+    const usernameRegex = new RegExp(username, 'i') 
+    const user = await User.findOne({ username: usernameRegex })
+    const passwordMatch = user.comparePassword(password)
+
+    if (!user) { return done(null, false, req.flash('loginMessage', 'Invalid username or password')); }
+    if (!passwordMatch) { return done(null, false, req.flash('loginMessage', 'Invalid username or password')); }
+    return done(null, user);
 }))

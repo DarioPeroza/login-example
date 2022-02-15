@@ -1,1 +1,32 @@
-<h1>Root</h1>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/normalize.css">
+    <title>Login</title>
+</head>
+<body>
+    <% if (messages) { %>
+        <p><%= messages %></p>
+    <% } %>
+    <form action="/signup" method="post">
+        <h2>Sing Up</h2>
+        <label for="signup_username">Username</label>
+        <input type="string" id="signup_username" name="username"/>
+        <label for="signup_password">Password</label>
+        <input type="password" id="signup_password" name="password"/>
+        <label for="signup_vePassword">Verify password</label>
+        <input type="password" id="signup_vePassword" name="vePassword"/>
+        <input type="submit" value="Submit">
+    </form>
+    <form action="/signin" method="post">
+        <h2>Sing In</h2>
+        <label for="signin_username">Username</label>
+        <input type="string" id="signin_username" name="username"/>
+        <label for="signin_password">Password</label>
+        <input type="password" id="signin_password" name="password"/>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
